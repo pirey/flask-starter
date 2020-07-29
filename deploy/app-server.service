@@ -1,7 +1,7 @@
 # systemd unit file for gunicorn process
 
 [Unit]
-Description=Gunicorn instance to serve jobsg api
+Description=Gunicorn instance to serve app api
 After=network.target
 
 [Service]

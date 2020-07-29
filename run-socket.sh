@@ -3,4 +3,4 @@
 source ./.env
 source ./.flaskenv
 
-gunicorn --workers 3 --bind unix:jobsg.sock -m 007 jobsg:app
+gunicorn --workers 3 --bind unix:app.sock -m 007 app:app
