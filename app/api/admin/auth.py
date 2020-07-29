@@ -4,7 +4,7 @@ from functools import wraps
 from flask import request
 from app import config, schemas as s, models as m
 from app.logger import logger
-from app.lib import admin
+from app.workflow import admin
 
 
 def authenticate_admin(f):

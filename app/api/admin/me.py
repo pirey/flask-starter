@@ -1,7 +1,7 @@
 from flask import jsonify, request
 
 from app import schemas as s
-from app.lib import admin
+from app.workflow import admin
 
 from . import auth
 

@@ -1,4 +1,4 @@
-from app.lib import admin
+from app.workflow import admin
 
 
 def test_authenticate_invalid_credentials(client):

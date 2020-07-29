@@ -3,7 +3,7 @@ import base64
 import subprocess
 import click
 from app import db
-from app.lib import admin
+from app.workflow import admin
 
 
 def init_app(app):

@@ -1,4 +1,4 @@
-from app.lib import admin
+from app.workflow import admin
 
 
 def test_get_me_without_auth(client):
