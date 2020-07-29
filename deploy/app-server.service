@@ -1,0 +1,15 @@
+# systemd unit file for gunicorn process
+
+[Unit]
+Description=Gunicorn instance to serve jobsg api
+After=network.target
+
+[Service]
+User={user}
+Group=www-data
+WorkingDirectory=<project_dir>
+Environment="PATH=<project_dir>/.venv/bin"
+ExecStart=<project_dir>/run_socket.sh
+
+[Install]
+WantedBy=multi-user.target
