@@ -4,16 +4,16 @@ from faker import Faker
 from faker.providers import internet
 from datetime import date, datetime, timedelta
 from werkzeug.security import generate_password_hash
-from app import app, models as m, config, db
+from app import create_app, models as m, config, db
 
 fake = Faker()
 fake.add_provider(internet)
 
 @pytest.fixture
 def client():
-    app.testing = True
+    app = create_app()
+    app.config['TESTING'] = True
 
-    db.session.remove()
     db.reset_db()
     with app.test_client() as client:
         yield client

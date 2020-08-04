@@ -15,6 +15,8 @@ Base.query = session.query_property()
 
 
 def reset_db():
+    # close all connection before reset db
+    session.remove()
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
 

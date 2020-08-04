@@ -18,9 +18,6 @@ def reset_db():
     def _reset_db():
         db.reset_db()
 
-    # close all connection before reset db
-    db.session.remove()
-
     # call reset_db here so we don't have to call it in the test
     _reset_db()
 
