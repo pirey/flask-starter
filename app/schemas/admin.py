@@ -3,9 +3,9 @@ from marshmallow import Schema, fields as f, validate as v, ValidationError, EXC
 
 class AdminUserSchema(Schema):
     id = f.Integer()
-    username = f.String(required=True, validate=v.Length(min=3, max=100))
+    username = f.String(required=True, validate=v.Length(max=100))
     password = f.String(required=True, load_only=True,
-                        validate=v.Length(min=4, max=100))
+                        validate=v.Length(max=100))
     status = f.Integer()
 
 
@@ -16,8 +16,17 @@ admin_user_update = AdminUserSchema(
 
 
 class AdminUserLoginSchema(Schema):
-    username = f.String(required=True)
-    password = f.String(required=True, load_only=True)
+    username = f.String(required=True, validate=v.Length(max=100))
+    password = f.String(required=True, load_only=True,
+                        validate=v.Length(max=100))
 
 
-admin_login = AdminUserLoginSchema()
+admin_user_login = AdminUserLoginSchema(only=['username', 'password'])
+
+
+class AdminUserLoginResponseSchema(Schema):
+    admin_user = f.Nested(admin_user)
+    token = f.String(dump_only=True)
+
+
+admin_user_login_response = AdminUserLoginResponseSchema()

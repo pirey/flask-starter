@@ -1,4 +1,3 @@
-# TODO need improvement
 import os
 
 from sqlalchemy import create_engine
@@ -20,7 +19,7 @@ def reset_db():
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
 
-def init_app(app):
+def init(app):
     @app.teardown_appcontext
     def shutdown_session(exception=None):
         session.remove()

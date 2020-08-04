@@ -9,11 +9,6 @@ fake.add_provider(internet)
 
 
 @pytest.fixture
-def session():
-    return db.session
-
-
-@pytest.fixture
 def reset_db():
     def _reset_db():
         db.reset_db()

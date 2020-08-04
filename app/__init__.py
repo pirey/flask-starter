@@ -12,11 +12,11 @@ def create_app():
     app = Flask(__name__)
 
 
-    config.init_app(app)
-    cli.init_app(app)
-    api.init_app(app)
-    db.init_app(app)
+    config.init(app)
+    cli.init(app)
+    api.init(app)
+    db.init(app)
 
-    CORS(app, support_credentials=True)
+    CORS(app)
 
     return app

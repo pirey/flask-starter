@@ -6,7 +6,7 @@ from app import db
 from app.workflow import admin
 
 
-def init_app(app):
+def init(app):
     @app.cli.command('db:reset', short_help="Clear database, then init database.")
     def reset_db_command():
         from app import models
